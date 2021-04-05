@@ -7,7 +7,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
 from botUtils import token, stem, wdBag
-from botModel import Perceptron
+from botModel import NeuralNet
 
 with open('botContent/data/skilld.json', 'r') as f:
     intents = json.load(f)
@@ -51,10 +51,10 @@ y_train = np.array(y_train)
 
 # Hyper-parameters 
 num_epochs = 1000
-batch_size = 256
+batch_size = 8
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 16
+hidden_size = 8
 output_size = len(tags)
 
 class ChatDataset(Dataset):
@@ -80,7 +80,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = Perceptron(input_size, hidden_size, output_size).to(device)
+model = NeuralNet(input_size, hidden_size, output_size).to(device)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
@@ -104,10 +104,10 @@ for epoch in range(num_epochs):
         optimizer.step()
         
     if (epoch+1) % 100 == 0:
-        print (f'Провал: [{epoch+1}/{num_epochs}], Успех: {loss.item():.4f}')
+        print (f'Части [{epoch+1}/{num_epochs}], Успехи: {loss.item():.4f}')
 
 
-print(f'Последний шанс: {loss.item():.4f}')
+print(f'Финальный шанс: {loss.item():.4f}')
 
 data = {
     "model_state": model.state_dict(),
@@ -121,4 +121,4 @@ data = {
 FILE = "botContent/skills/textskill.pth"
 torch.save(data, FILE)
 
-print(f'Данные подготовлены и находятся в файле {FILE}')
+print(f'training complete. file saved to {FILE}')
