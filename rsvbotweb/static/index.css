@@ -1,0 +1,15 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    background-image: url('index.jpg');
+    background-size: cover;
+}
+#rsv-bot{
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+}
