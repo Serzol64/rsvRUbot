@@ -10,6 +10,118 @@ body{
 }
 #rsv-bot{
     position: fixed;
-    bottom: 2%;
-    right: 2%;
+    bottom: 4vh;
+    right: 2vw;
+}
+#rsv-bot > header {
+    float: right;
+}
+#rsv-bot > header .invite *{
+    width: calc(10vw / 3);
+    -webkit-box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+    -moz-box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+    box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+}
+#rsv-bot > main{
+    width: 20vw;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+    -moz-box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+    box-shadow: -5px -5px 5px -5px rgba(83, 92, 99, 0.6);
+    display: none;
+}
+#rsv-bot > main .bot-header{
+    width: 100%;
+    height: calc(420px / 4);
+    background-color: #3874e0;
+    color: white;
+}
+#rsv-bot > main .bot-header img#avatar{
+    width: calc(100% / 5);
+    margin-left: 2%;
+    margin-top: 10px;
+}
+#rsv-bot > main .bot-header h2, #rsv-bot > main .bot-header span{
+    display: block;
+    position: relative;
+    top: 17%;
+    left: 2%;
+}
+#rsv-bot > main .bot-header .close{
+    float: right;
+    margin-top: -11%;
+    margin-right: 1%;
+}
+#rsv-bot > main .bot-header .close img{
+    width: 77%;
+}
+#rsv-bot > main .bot-content{
+    width: 100%;
+    height: calc(420px / 2);
+    overflow: auto;
+}
+#rsv-bot > main .bot-content *{
+    width: 50%;
+    font-size: 100%;
+    height: auto;
+    padding: 4%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+#rsv-bot > main .bot-content p#response{
+    float: left;
+    margin-left: 1%;
+    display: inline-table;
+    background:  rgba(209,0,74,1);
+    color: white;
+}
+#rsv-bot > main .bot-content p#query{
+    float: right;
+    margin-right: 1%;
+    display: inline-table;
+    background: rgba(56,116,224,1);
+    color: white;
+}
+#rsv-bot > main .bot-footer{
+    width: 100%;
+    height: calc(420px / 3);
+    background-color: lightgray;
+}
+#rsv-bot > main .bot-footer .query{
+    width: 70%;
+    height: calc(140px / 2);
+    font-size: 130%;
+    margin-left: 2%;
+    padding: 2%;
+    resize: none;
+    border-radius: 10px;
+}
+#rsv-bot > main .bot-footer button{
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAE9klEQVRogcWaW2wUVRjHf9/ZaW1pV6g1QAxSWkAkREyktgv6AIISxCiaCJGL0QfjlYvQouJLY4KFbpuAAvJmtIGIjUQT8RICEsVeRBKDgVCBXhCjXAt0W6hl5/OBpbSwLbO7M+P/beec+Z/vl+/MnnO+GcElTVnRlGcbmaa2FIowDhgF5ALZsS4R4CyizWrLH4Lusyz7h71rRx93Y3xJ5eaikpb8gMoiFV0A3JOMh0IjsEUsra5fk9+SbCxJgRSXNE00mBKF+UAg2cFvkI3yjcG8V1s1cl+iNycEUry0aZhJM2GFhYnem6BqtNte3LC+4KTTGxwHM3lF83O2yCaBIcnFlrDaEH21Ppy/zUnnW4JMKDuYHoxkbQBeSjm0ZCSyuT0rsvRg2YR/B+w2UOPEkn+yMun6QtCZ7kaXmAR2213dTzd8OPbiAH3i66GVh4NRO2MnUOxJdIlKqM/oGPTonk1DI/GaTbyLE8oOpl+xM2twAPHijMG8PjsH4+WjD6CEugZ1fjVr8ZHb4jXHBQlGsjY4nU63ZxoWTr2dd57N9RxG4ZG2jPR18dpuWgNCJa1zgXKn5r8cuUxuMMCTxUGG51jsPXQJTSFYByocMXnZ0RN1637vfbEPSPHSpmEE5HuBjEScaw9fugpT5BOMMH1Y0bJP/q5f1/O8WH3a00wlSawTqlCx/RwAc0JBAN7//Cy2dzSD0ywpB164dqEnI6HSlgeADaSwYvucmfvvCi358q+69Sehd0aUVaS47fA5M2KMrALmQSzwopKWfANH6edfLOERBFY+cwdzQkF2/BrxEsY2ahfUVhW0WgAGeR7UFQjwNTPGFrMQWB2bWjrf7RF8hFkArJaH3zo28ko00Oq6fUx+TDMrEM2zuqNmupcLsh+ZidrWVAuVSZ4ekfAeRtWeZMUKBZ7LSxjFjLNEKFCPN0c9A3oEI+hoS9W3oyvgGcwQi+t1J9+kCuHt50izhNmF2bRFbDbuaEvFMujaIpiK3JjahqsVQF9lBN6dm8vswmy+3hdh87cpZQOg3Yhw3o3gnOoaxOMxiPIaV/65zhtVmlyIz5E8gkCRY0aVxtStbi2vIAAEu9Egut8du/7lJQSAiNlv0gL2Lvcsb5bXEAC2BHabvWtHH4+V9l2XHxDAoYaKEScMgFHZ6ra7TxCgbIHY0VbT7E8B2y1v3yAgarCvg9SvyW8R2O6Gs48QADW1VQWt0KvYIKKrIbXqjc8Qqtg9FdEekNpw/m+KVifr6jMEqnzcUFlwoGf83o0BoqVAwhsfvyGAtvT07rf7xND7R23lmFMi8nIijv8DBAJv/FQ+9nSfOG7sVBfOq0Fks1PTxU/k+Aqhysa6ylE3LRdxzyPdF04vAb5zYtzRpXz240VfIBB2RYIdy+M39aOpr53KvpzVuRMl5F1kzqVQl9k56LGEXr0B7Nk0NNKpGTNwmBlPJeyyzOWZ/UHALYrWByqHd7RndzyVyDPjtlTZ2H3hzKyfK+5tH6if49JcqLR5HiofATkpR+dM50TklbpwXo2Tzo6LD/Xh/G0SDYwB/QAX92VxpALVhivjnUJAki92Jr/5530EoqVefFSjSFlDVV7Ch72Uqr5TVjTl2ZhFCPOB8UnaHAK2WoFodSrfbrlWvn5w+dG7rUDaNLW1UETGKToKuJO+H56dUaRZsBtFzH5bArsbKkaccGP8/wBtqlI/fu8UugAAAABJRU5ErkJggg==');
+    width: 19%;
+    height: calc(140px / 2);
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    float: right;
+    background-size: 40px;
+}
+#rsv-bot > main .bot-footer *{
+    margin-top: 8%;
+}
+@media all and (max-width: 1024px){
+    #rsv-bot > main{
+       width: 100%;
+       margin-left: 1%;
+    }
+    #rsv-bot > header .invite * {
+        width: calc(50vw / 3);
+        margin-left: -2%;
+    }
+}
+@media all and (min-width: 1024px) and (min-width: 1280px){
+    #rsv-bot > main{
+       width: 27vw;
+    }
 }
