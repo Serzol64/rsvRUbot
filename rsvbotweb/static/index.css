@@ -110,6 +110,9 @@ body{
 #rsv-bot > main .bot-footer *{
     margin-top: 8%;
 }
+#rsv-bot > main .bot-footer *:focus{
+    border: none;
+}
 @media all and (max-width: 1024px){
     #rsv-bot > main{
        width: 100%;
