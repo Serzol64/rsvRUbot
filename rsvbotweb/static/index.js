@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 let botService;
 
-if (location == "http://rsvbot64.ml/") { botService = "http://service.rsvbot64.ml/bot/"; } 
+if (location == "http://rsvbot64.ml/") { botService = "http://service.rsvbot64.ml:5000/bot/"; } 
 else { botService = "http://127.0.0.1:5000/bot/"; }
 
 const LastMessage = () => {
