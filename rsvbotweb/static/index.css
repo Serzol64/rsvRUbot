@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 html, body{
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
+    font-family: 'Roboto',sans-serif;
 }
+h1,h2,h3,h4,h5,h6,strong{ font-family: 'Ubuntu',sans-serif; }
 body{
     background-image: url('index.jpg');
     background-size: cover;
@@ -61,13 +64,47 @@ body{
     height: calc(420px / 2);
     overflow: auto;
 }
-#rsv-bot > main .bot-content *{
+#rsv-bot > main .bot-content p{
     width: 50%;
     font-size: 100%;
     height: auto;
     padding: 4%;
     margin-top: 2%;
     border-radius: 10px;
+}
+ul.accept, ul.skillslist{
+    list-style-type: none;
+    display:block;
+    margin-left: -8%;
+}
+ul.accept li, ul.skillslist li{
+    text-align:center;
+    display:block;
+    margin-top: 7px;
+    width: 70%;
+    font-size: 120%;
+    border-radius: 10px;
+    padding-top: 9px;
+    padding-bottom: 12px;
+    opacity: 0.80;
+    float: left;
+}
+ul.accept li:hover, ul.skillslist li:hover{
+    cursor:pointer;
+    opacity: 1;
+}
+ul.accept li{
+    background-color: green;
+    color:white;
+}
+
+ul.accept li[data-query="Мне не нужна помощь"]{
+    background-color: red;
+}
+  
+ul.skillslist li{
+    background-color: darkblue;
+    color:white;
 }
 #rsv-bot > main .bot-content p#response{
     float: left;
