@@ -1,7 +1,6 @@
-vscode
 bin
 __pycache__
 etc
 lib
-vscode
+.vscode/
 share
