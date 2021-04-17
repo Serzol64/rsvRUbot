@@ -10,6 +10,8 @@ let referrer = document.referrer  // откуда перешел
 let url = document.URL           // адрес текущей страницы
 let clientId = readCookie(behAnCookieName)  // временнвй ID клиента из куки
 
+let isUserActive = 1;
+
 // если куки нет - генерим и ставим
 if (typeof clientId == 'undefined') {
     clientId = Math.floor(Math.random() * 10000000);
@@ -18,6 +20,7 @@ if (typeof clientId == 'undefined') {
 
 // отправка данных к сервису трекера
 function loadXMLDoc() {
+    if (isUserActive === 0) return 0;
     var xmlhttp = new XMLHttpRequest();
     var test = ''
     xmlhttp.onreadystatechange = function() {
@@ -54,11 +57,24 @@ function writeCookie(name, val, expires) {
 
 // все что нужно сделать после успешного запроса пишем в эту функцию
 function mainActions(result) {
-
-    console.log(result)
+    isUserActive = 0;
+    console.log('got: ' + result)
     //console.log(JSON.parse(result))
 
 }
 
+function addListen(){
+    window.addEventListener("keyup", getEvent);
+    window.addEventListener("scroll", getEvent);
+    window.addEventListener("click", getEvent);
+}
+
+function getEvent(e){
+    isUserActive++
+}
+
+document.addEventListener('DOMContentLoaded', addListen, false);
 loadXMLDoc()
+setInterval(loadXMLDoc, 10000)
+
 
