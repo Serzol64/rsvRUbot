@@ -13,9 +13,9 @@ define('D_PAR_ID', 'id');
 
 //TODO: перенести параметры авторизации в отдельный ini файл за пределами веб доступа
 $host = '127.0.0.1';
-$db   = 'ce42237_haka2021';
-$user = 'ce42237_haka2021';
-$pass = '1qaz@WSX';
+$db   = '';
+$user = '';
+$pass = '';
 $charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
