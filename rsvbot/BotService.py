@@ -1,8 +1,8 @@
 import random
 import json
-
+import re
 import torch
-
+from botSkill import skillBase
 from botModel import NeuralNet
 from botUtils import wdBag, token
 from fastapi import FastAPI
@@ -59,8 +59,23 @@ def get_botResponse(answer: str):
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 response = random.choice(intent['responses'])
+                isSkill = re.search("\[(.*)\s*=\s*(.*)\]",response)
+
+                if isSkill:
+                    query = re.search('\[(.*)\s*=\s*(.*)\]',response).group(1)
+                    skill = re.search('\[(.*)\s*=\s*(.*)\]',response).group(2)
+
+                    getSkill = skillBase(skill)
+
+                    if query != "": answer = f"{query} {getSkill}"
+                    else: answer = getSkill
+
+                    response = answer 
+
+
+                else: response = random.choice(intent['responses'])
     else:
-        response = "Извините, я не понял запрос..."
+        response = "Я перенаправляю ваш вопрос в службу поддержки"
 
     return {"botResponse": response}
 

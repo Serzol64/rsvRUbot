@@ -98,7 +98,7 @@ ul.accept li{
     color:white;
 }
 
-ul.accept li[data-query="Мне не нужна помощь"]{
+ul.accept li:last-child{
     background-color: red;
 }
   
